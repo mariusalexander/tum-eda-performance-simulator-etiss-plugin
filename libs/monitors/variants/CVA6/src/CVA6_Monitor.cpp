@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-// TODO: Hand-written as a proof-of-concept
+/********************* AUTO GENERATE FILE (create by Trace-Generator) *********************/
 
 #include "CVA6_Monitor.h"
 
@@ -34,10 +34,10 @@ extern "C"
   uint64_t *CVA6_Monitor_rd_buffer;
   uint64_t *CVA6_Monitor_pc_buffer;
   uint64_t *CVA6_Monitor_brTarget_buffer;
-  uint64_t *CVA6_Monitor_memAddr_buffer;
   uint64_t *CVA6_Monitor_imm_buffer;
   uint64_t *CVA6_Monitor_rs1_data_buffer;
   uint64_t *CVA6_Monitor_rs2_data_buffer;
+  uint64_t *CVA6_Monitor_addr_buffer;
 }
 
 extern InstructionMonitorSet* CVA6_InstrMonitorSet;
@@ -57,10 +57,10 @@ void CVA6_Monitor::connectChannel(Channel* channel_)
   CVA6_Monitor_rd_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rd"));
   CVA6_Monitor_pc_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("pc"));
   CVA6_Monitor_brTarget_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("brTarget"));
-  CVA6_Monitor_memAddr_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("memAddr"));
   CVA6_Monitor_imm_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("imm"));
   CVA6_Monitor_rs1_data_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs1_data"));
   CVA6_Monitor_rs2_data_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("rs2_data"));
+  CVA6_Monitor_addr_buffer = static_cast<uint64_t*>(channel_->getTraceValueHook("addr"));
 }
 
 
@@ -76,10 +76,10 @@ std::string CVA6_Monitor::getBlockDeclarations(void) const
   ret_strs << "extern uint64_t *CVA6_Monitor_rd_buffer;\n";
   ret_strs << "extern uint64_t *CVA6_Monitor_pc_buffer;\n";
   ret_strs << "extern uint64_t *CVA6_Monitor_brTarget_buffer;\n";
-  ret_strs << "extern uint64_t *CVA6_Monitor_memAddr_buffer;\n";
   ret_strs << "extern uint64_t *CVA6_Monitor_imm_buffer;\n";
   ret_strs << "extern uint64_t *CVA6_Monitor_rs1_data_buffer;\n";
   ret_strs << "extern uint64_t *CVA6_Monitor_rs2_data_buffer;\n";
-  
+  ret_strs << "extern uint64_t *CVA6_Monitor_addr_buffer;\n";
+
   return ret_strs.str();
 }

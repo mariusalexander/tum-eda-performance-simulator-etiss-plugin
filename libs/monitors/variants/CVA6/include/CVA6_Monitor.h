@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-// TODO: Hand-written as a proof-of-concept
+/********************* AUTO GENERATE FILE (create by Trace-Generator) *********************/
 
-#ifndef CVA6_MONITOR_H
-#define CVA6_MONITOR_H
+#ifndef SWEVAL_MONITOR_CVA6_MONITOR_H
+#define SWEVAL_MONITOR_CVA6_MONITOR_H
 
 #include "Monitor.h"
 #include "softwareEval-backends/Channel.h"
@@ -34,4 +34,4 @@ public:
   virtual std::string getBlockDeclarations(void) const;
 };
 
-#endif // CVA6_MONITOR_H
+#endif // SWEVAL_MONITOR_CVA6_MONITOR_H

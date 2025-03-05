@@ -1,9 +1,10 @@
+
 TARGET_SOURCES(SWEVAL_MONITORS_LIB PRIVATE
-  src/CV32E40P_InstructionMonitors.cpp
-  src/CV32E40P_Monitor.cpp
+  	src/CV32E40P_InstructionMonitors.cpp
+	src/CV32E40P_Monitor.cpp
+
 )
 
 TARGET_INCLUDE_DIRECTORIES(SWEVAL_MONITORS_LIB PRIVATE
-  include
+include
 )
-
