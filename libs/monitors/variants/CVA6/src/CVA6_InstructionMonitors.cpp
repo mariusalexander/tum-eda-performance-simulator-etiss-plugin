@@ -997,7 +997,7 @@ static InstructionMonitor *instrMonitor_beq = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1037,7 +1037,7 @@ static InstructionMonitor *instrMonitor_bne = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1077,7 +1077,7 @@ static InstructionMonitor *instrMonitor_blt = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1117,7 +1117,7 @@ static InstructionMonitor *instrMonitor_bge = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1157,7 +1157,7 @@ static InstructionMonitor *instrMonitor_bltu = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1197,7 +1197,7 @@ static InstructionMonitor *instrMonitor_bgeu = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1232,7 +1232,7 @@ static InstructionMonitor *instrMonitor_jal = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int32_t)("<< imm << " << 11)) >> 11)" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
@@ -1266,7 +1266,7 @@ static InstructionMonitor *instrMonitor_jalr = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + (((int16_t)("<< imm << " << 4)) >> 4)) & -2U" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << imm  << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | ((("<< imm << " != 0) & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
     
     ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
