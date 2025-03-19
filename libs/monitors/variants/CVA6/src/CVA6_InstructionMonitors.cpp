@@ -1,20 +1,21 @@
 /*
- * Copyright 2022 Chair of EDA, Technical University of Munich
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *	 http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright 2025 Chair of EDA, Technical University of Munich
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*	 http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
-/********************* AUTO GENERATE FILE (create by TraceGenerator) *********************/
+/********************* AUTO GENERATE FILE (create by M2-ISA-R::Trace-Generator) *********************/
+
 
 #include "Monitor.h"
 
@@ -33,7 +34,7 @@ static InstructionMonitor *instrMonitor__def = new InstructionMonitor(
     
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 0 << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -53,9 +54,9 @@ static InstructionMonitor *instrMonitor_auipc = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -75,9 +76,9 @@ static InstructionMonitor *instrMonitor_lui = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -97,9 +98,9 @@ static InstructionMonitor *instrMonitor_csrrwi = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 3 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -119,9 +120,9 @@ static InstructionMonitor *instrMonitor_csrrsi = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 4 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -141,9 +142,9 @@ static InstructionMonitor *instrMonitor_csrrci = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 5 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -166,11 +167,11 @@ static InstructionMonitor *instrMonitor_addi = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 6 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -193,11 +194,11 @@ static InstructionMonitor *instrMonitor_xori = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 7 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -220,11 +221,11 @@ static InstructionMonitor *instrMonitor_ori = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 8 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -247,11 +248,11 @@ static InstructionMonitor *instrMonitor_andi = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 9 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -274,11 +275,11 @@ static InstructionMonitor *instrMonitor_slti = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 10 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -301,11 +302,11 @@ static InstructionMonitor *instrMonitor_sltiu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 11 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -328,11 +329,11 @@ static InstructionMonitor *instrMonitor_slli = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 12 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -355,11 +356,11 @@ static InstructionMonitor *instrMonitor_srli = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 13 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -382,11 +383,11 @@ static InstructionMonitor *instrMonitor_srai = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 14 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -409,11 +410,11 @@ static InstructionMonitor *instrMonitor_csrrw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 15 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -436,11 +437,11 @@ static InstructionMonitor *instrMonitor_csrrs = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 16 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -463,11 +464,11 @@ static InstructionMonitor *instrMonitor_csrrc = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 17 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -490,11 +491,11 @@ static InstructionMonitor *instrMonitor_addiw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 18 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -517,11 +518,11 @@ static InstructionMonitor *instrMonitor_slliw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 19 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -544,11 +545,11 @@ static InstructionMonitor *instrMonitor_sraiw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 20 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -571,11 +572,11 @@ static InstructionMonitor *instrMonitor_srliw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 21 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -601,13 +602,13 @@ static InstructionMonitor *instrMonitor_add = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 22 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -633,13 +634,13 @@ static InstructionMonitor *instrMonitor_sub = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 23 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -665,13 +666,13 @@ static InstructionMonitor *instrMonitor_xor = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 24 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -697,13 +698,13 @@ static InstructionMonitor *instrMonitor_or = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 25 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -729,13 +730,13 @@ static InstructionMonitor *instrMonitor_and = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 26 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -761,13 +762,13 @@ static InstructionMonitor *instrMonitor_slt = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 27 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -793,13 +794,13 @@ static InstructionMonitor *instrMonitor_sltu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 28 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -825,13 +826,13 @@ static InstructionMonitor *instrMonitor_sll = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 29 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -857,13 +858,13 @@ static InstructionMonitor *instrMonitor_srl = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 30 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -889,13 +890,13 @@ static InstructionMonitor *instrMonitor_sra = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 31 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -921,13 +922,13 @@ static InstructionMonitor *instrMonitor_subw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 32 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -953,13 +954,13 @@ static InstructionMonitor *instrMonitor_addw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 33 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -991,15 +992,15 @@ static InstructionMonitor *instrMonitor_beq = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 34 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1031,15 +1032,15 @@ static InstructionMonitor *instrMonitor_bne = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 35 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1071,15 +1072,15 @@ static InstructionMonitor *instrMonitor_blt = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 36 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1111,15 +1112,15 @@ static InstructionMonitor *instrMonitor_bge = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 37 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1151,15 +1152,15 @@ static InstructionMonitor *instrMonitor_bltu = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 38 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1191,15 +1192,15 @@ static InstructionMonitor *instrMonitor_bgeu = new InstructionMonitor(
     imm += R_imm_11.read(ba) << 11;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 39 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int16_t)("<< imm << " << 3)) >> 3)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 3)) >> 3) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1228,13 +1229,13 @@ static InstructionMonitor *instrMonitor_jal = new InstructionMonitor(
     imm += R_imm_12.read(ba) << 12;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 40 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer"<< " + (((int32_t)("<< imm << " << 11)) >> 11)" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ + (((int32_t)(imm  << 11)) >> 11) << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | (("<< imm << " & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int32_t)(imm  << 11)) >> 11) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1260,15 +1261,15 @@ static InstructionMonitor *instrMonitor_jalr = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 41 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + (((int16_t)("<< imm << " << 4)) >> 4)) & -2U" << ";\n";
+    ret_strs << "CVA6_Monitor_brTarget_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< (((int16_t)(imm  << 4)) >> 4)<< ") & -2U" << ";\n";
     
-    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << "("<< imm << " | ((("<< imm << " != 0) & 0x1000) ? 0xFFFFFFFFFFFFE000 : 0))" << ";\n";
+    ret_strs << "CVA6_Monitor_imm_buffer[*CVA6_Monitor_instrCnt] = " << (((int16_t)(imm  << 4)) >> 4) << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1294,13 +1295,13 @@ static InstructionMonitor *instrMonitor_mul = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 42 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1326,13 +1327,13 @@ static InstructionMonitor *instrMonitor_mulh = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 43 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1358,13 +1359,13 @@ static InstructionMonitor *instrMonitor_mulhu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 44 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1390,13 +1391,13 @@ static InstructionMonitor *instrMonitor_mulhsu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 45 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1422,13 +1423,13 @@ static InstructionMonitor *instrMonitor_mulw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 46 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1454,17 +1455,17 @@ static InstructionMonitor *instrMonitor_div = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 47 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1490,17 +1491,17 @@ static InstructionMonitor *instrMonitor_rem = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 48 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1526,17 +1527,17 @@ static InstructionMonitor *instrMonitor_divw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 49 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1562,17 +1563,17 @@ static InstructionMonitor *instrMonitor_remw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 50 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1598,17 +1599,17 @@ static InstructionMonitor *instrMonitor_divu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 51 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1634,17 +1635,17 @@ static InstructionMonitor *instrMonitor_remu = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 52 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1670,17 +1671,17 @@ static InstructionMonitor *instrMonitor_divuw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 53 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1706,17 +1707,17 @@ static InstructionMonitor *instrMonitor_remuw = new InstructionMonitor(
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 54 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs1 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2  << "]" << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_data_buffer[*CVA6_Monitor_instrCnt] = " << "*((RV64IMACFD*)cpu)->X["<< rs2 << "]" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1742,13 +1743,13 @@ static InstructionMonitor *instrMonitor_lw = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 55 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1774,13 +1775,13 @@ static InstructionMonitor *instrMonitor_lh = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 56 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1806,13 +1807,13 @@ static InstructionMonitor *instrMonitor_lhu = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 57 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1838,13 +1839,13 @@ static InstructionMonitor *instrMonitor_lb = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 58 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1870,13 +1871,13 @@ static InstructionMonitor *instrMonitor_lbu = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 59 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1902,13 +1903,13 @@ static InstructionMonitor *instrMonitor_ld = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 60 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1934,13 +1935,13 @@ static InstructionMonitor *instrMonitor_lwu = new InstructionMonitor(
     imm += R_imm_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 61 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd  << ";\n";
+    ret_strs << "CVA6_Monitor_rd_buffer[*CVA6_Monitor_instrCnt] = " << rd << ";\n";
     
-    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1  << "]"<< " + "<< imm << ")" << ";\n";
+    ret_strs << "CVA6_Monitor_addr_buffer[*CVA6_Monitor_instrCnt] = " << "("<< "*((RV64IMACFD*)cpu)->X["<< rs1 << "]"<< " + "<< imm<< ")" << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1963,11 +1964,11 @@ static InstructionMonitor *instrMonitor_sb = new InstructionMonitor(
     rs2 += R_rs2_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 62 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -1990,11 +1991,11 @@ static InstructionMonitor *instrMonitor_sh = new InstructionMonitor(
     rs2 += R_rs2_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 63 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -2017,11 +2018,11 @@ static InstructionMonitor *instrMonitor_sw = new InstructionMonitor(
     rs2 += R_rs2_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 64 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
@@ -2044,11 +2045,11 @@ static InstructionMonitor *instrMonitor_sd = new InstructionMonitor(
     rs2 += R_rs2_0.read(ba) << 0;
     ret_strs << "CVA6_Monitor_typeId_buffer[*CVA6_Monitor_instrCnt] = " << 65 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1  << ";\n";
+    ret_strs << "CVA6_Monitor_rs1_buffer[*CVA6_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2  << ";\n";
+    ret_strs << "CVA6_Monitor_rs2_buffer[*CVA6_Monitor_instrCnt] = " << rs2 << ";\n";
     
-    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << "cpu->instructionPointer" << ";\n";
+    ret_strs << "CVA6_Monitor_pc_buffer[*CVA6_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*CVA6_Monitor_instrCnt += 1;\n";
     return ret_strs.str();
   },
