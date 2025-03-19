@@ -60,10 +60,10 @@ Note:
 
 ## Version
 
-This is version v1.0
+This is version v2.0
 
 It is compatible with the following submodule versions:
 
 | Submodule | Version |
 | --------- | ------- |
-| SoftwareEval-Backends | v1.0 |
+| SoftwareEval-Backends | v2.0 |
