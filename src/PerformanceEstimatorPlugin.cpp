@@ -59,7 +59,7 @@ PerformanceEstimatorPlugin::PerformanceEstimatorPlugin(etiss::Configuration* con
     {
       std::cout << "ERROR: SwEvalBackends::Factory failed to provide channel for <" << uArchName << ">" << std::endl;
     }
-    estimator_ptr = backendFactory.getPerformanceEstimator(backendHandle);
+    estimator_ptr = backendFactory.getPerformanceEstimator(backendHandle, *config);
     if (estimator_ptr == nullptr)
     {
       std::cout << "ERROR: SwEvalBackends::Factory failed to provide performance-estimator for <" << uArchName << ">" << std::endl;
@@ -75,9 +75,6 @@ PerformanceEstimatorPlugin::PerformanceEstimatorPlugin(etiss::Configuration* con
   }
   
   // TODO: Add error handling in case any of the above "gets" fails
-  
-  // forward config
-  estimator_ptr->applyConfig(*config);
 
   // Connect components
   estimator_ptr->connectChannel(channel_ptr);
