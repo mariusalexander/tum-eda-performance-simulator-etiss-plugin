@@ -75,7 +75,6 @@ PerformanceEstimatorPlugin::PerformanceEstimatorPlugin(etiss::Configuration* con
   }
   
   // TODO: Add error handling in case any of the above "gets" fails
-
   // Connect components
   estimator_ptr->connectChannel(channel_ptr);
   monitor_ptr->connectChannel(channel_ptr);
