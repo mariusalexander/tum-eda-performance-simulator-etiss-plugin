@@ -1,0 +1,10 @@
+
+TARGET_SOURCES(SWEVAL_MONITORS_LIB PRIVATE
+  	src/SimpleRISCV_H_nfw_NoBrPred_Monitor.cpp
+	src/SimpleRISCV_H_nfw_NoBrPred_InstructionMonitors.cpp
+
+)
+
+TARGET_INCLUDE_DIRECTORIES(SWEVAL_MONITORS_LIB PRIVATE
+include
+)
