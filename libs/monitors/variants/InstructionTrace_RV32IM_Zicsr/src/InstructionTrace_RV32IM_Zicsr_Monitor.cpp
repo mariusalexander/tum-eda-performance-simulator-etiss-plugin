@@ -1,5 +1,5 @@
 /*
-* Copyright 2025 Chair of EDA, Technical University of Munich
+* Copyright 2026 Chair of EDA, Technical University of Munich
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ extern "C"
   uint64_t *InstructionTrace_RV32IM_Zicsr_Monitor_typeId_buffer;
   int *InstructionTrace_RV32IM_Zicsr_Monitor_pc_buffer;
   int *InstructionTrace_RV32IM_Zicsr_Monitor_code_buffer;
-  char (*InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer)[50];
+  char (*InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer)[100];
   int *InstructionTrace_RV32IM_Zicsr_Monitor_imm_buffer;
   int *InstructionTrace_RV32IM_Zicsr_Monitor_rs1_data_buffer;
   int *InstructionTrace_RV32IM_Zicsr_Monitor_rs2_data_buffer;
@@ -57,7 +57,7 @@ void InstructionTrace_RV32IM_Zicsr_Monitor::connectChannel(Channel* channel_)
 
   InstructionTrace_RV32IM_Zicsr_Monitor_pc_buffer = static_cast<int*>(channel_->getTraceValueHook("pc"));
   InstructionTrace_RV32IM_Zicsr_Monitor_code_buffer = static_cast<int*>(channel_->getTraceValueHook("code"));
-  InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer = static_cast<char(*)[50]>(channel_->getTraceValueHook("assembly"));
+  InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer = static_cast<char(*)[100]>(channel_->getTraceValueHook("assembly"));
   InstructionTrace_RV32IM_Zicsr_Monitor_imm_buffer = static_cast<int*>(channel_->getTraceValueHook("imm"));
   InstructionTrace_RV32IM_Zicsr_Monitor_rs1_data_buffer = static_cast<int*>(channel_->getTraceValueHook("rs1_data"));
   InstructionTrace_RV32IM_Zicsr_Monitor_rs2_data_buffer = static_cast<int*>(channel_->getTraceValueHook("rs2_data"));
@@ -79,7 +79,7 @@ std::string InstructionTrace_RV32IM_Zicsr_Monitor::getBlockDeclarations(void) co
 
   ret_strs << "extern int *InstructionTrace_RV32IM_Zicsr_Monitor_pc_buffer;\n";
   ret_strs << "extern int *InstructionTrace_RV32IM_Zicsr_Monitor_code_buffer;\n";
-  ret_strs << "extern char (*InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer)[50];\n";
+  ret_strs << "extern char (*InstructionTrace_RV32IM_Zicsr_Monitor_assembly_buffer)[100];\n";
   ret_strs << "extern int *InstructionTrace_RV32IM_Zicsr_Monitor_imm_buffer;\n";
   ret_strs << "extern int *InstructionTrace_RV32IM_Zicsr_Monitor_rs1_data_buffer;\n";
   ret_strs << "extern int *InstructionTrace_RV32IM_Zicsr_Monitor_rs2_data_buffer;\n";
