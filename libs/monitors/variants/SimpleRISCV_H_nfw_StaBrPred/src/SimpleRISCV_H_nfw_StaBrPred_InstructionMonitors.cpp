@@ -90,38 +90,6 @@ static InstructionMonitor *instrMonitor_sub = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_sll = new InstructionMonitor(
-  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "sll",
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(19,15);
-    rs1 += R_rs1_0.read(ba) << 0;
-    int rs2 = 0;
-    static etiss::instr::BitArrayRange R_rs2_0(24,20);
-    rs2 += R_rs2_0.read(ba) << 0;
-    int rd = 0;
-    static etiss::instr::BitArrayRange R_rd_0(11,7);
-    rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 2 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
-    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
-    return ret_strs.str();
-  },
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    return ret_strs.str();
-  }
-);
 static InstructionMonitor *instrMonitor_xor = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
   "xor",
@@ -137,7 +105,7 @@ static InstructionMonitor *instrMonitor_xor = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 3 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 2 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -169,7 +137,7 @@ static InstructionMonitor *instrMonitor_or = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 4 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 3 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -201,6 +169,38 @@ static InstructionMonitor *instrMonitor_and = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 4 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_slt = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "slt",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 5 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
@@ -218,15 +218,17 @@ static InstructionMonitor *instrMonitor_and = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_cadd = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_sltu = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cadd",
+  "sltu",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
     int rs2 = 0;
-    static etiss::instr::BitArrayRange R_rs2_0(6,2);
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
     rs2 += R_rs2_0.read(ba) << 0;
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
@@ -248,9 +250,9 @@ static InstructionMonitor *instrMonitor_cadd = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_mul = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_sll = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "mul",
+  "sll",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
@@ -280,9 +282,9 @@ static InstructionMonitor *instrMonitor_mul = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_rem = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_srl = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "rem",
+  "srl",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
@@ -312,21 +314,26 @@ static InstructionMonitor *instrMonitor_rem = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_addi = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_sra = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "addi",
+  "sra",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rs1 = 0;
     static etiss::instr::BitArrayRange R_rs1_0(19,15);
     rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 9 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
     
@@ -339,9 +346,9 @@ static InstructionMonitor *instrMonitor_addi = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_sltiu = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_addi = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "sltiu",
+  "addi",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
@@ -447,16 +454,18 @@ static InstructionMonitor *instrMonitor_andi = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_caddi = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_slti = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "caddi",
+  "slti",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(11,7);
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
     rs1 += R_rs1_0.read(ba) << 0;
     int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 14 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
@@ -472,16 +481,18 @@ static InstructionMonitor *instrMonitor_caddi = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_cslli = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_sltiu = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cslli",
+  "sltiu",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(11,7);
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
     rs1 += R_rs1_0.read(ba) << 0;
     int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 15 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
@@ -497,17 +508,23 @@ static InstructionMonitor *instrMonitor_cslli = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_caddi16sp = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_slli = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "caddi16sp",
+  "slli",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 16 << ";\n";
     
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << "2" << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << "2" << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
@@ -518,19 +535,122 @@ static InstructionMonitor *instrMonitor_caddi16sp = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_cmv = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_srli = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cmv",
+  "srli",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
-    int rs2 = 0;
-    static etiss::instr::BitArrayRange R_rs2_0(6,2);
-    rs2 += R_rs2_0.read(ba) << 0;
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 17 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_srai = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "srai",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 18 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_auipc = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "auipc",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 19 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_lui = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "lui",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 20 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_mul = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "mul",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 21 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
     
@@ -545,16 +665,365 @@ static InstructionMonitor *instrMonitor_cmv = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_cli = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_mulh = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cli",
+  "mulh",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 22 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_mulhu = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "mulhu",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 23 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_mulhsu = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "mulhsu",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 24 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_div = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "div",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 25 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_rem = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "rem",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 26 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_divu = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "divu",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 27 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_remu = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "remu",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rs2 = 0;
+    static etiss::instr::BitArrayRange R_rs2_0(24,20);
+    rs2 += R_rs2_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 28 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrw = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrw",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 29 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrs = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrs",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 30 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrc = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrc",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 31 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrwi = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrwi",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 18 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 32 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrsi = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrsi",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 33 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_csrrci = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "csrrci",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 34 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
     
@@ -579,7 +1048,7 @@ static InstructionMonitor *instrMonitor_sb = new InstructionMonitor(
     int rs2 = 0;
     static etiss::instr::BitArrayRange R_rs2_0(24,20);
     rs2 += R_rs2_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 19 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 35 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -606,7 +1075,7 @@ static InstructionMonitor *instrMonitor_sh = new InstructionMonitor(
     int rs2 = 0;
     static etiss::instr::BitArrayRange R_rs2_0(24,20);
     rs2 += R_rs2_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 20 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 36 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -633,65 +1102,11 @@ static InstructionMonitor *instrMonitor_sw = new InstructionMonitor(
     int rs2 = 0;
     static etiss::instr::BitArrayRange R_rs2_0(24,20);
     rs2 += R_rs2_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 21 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 37 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
-    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
-    return ret_strs.str();
-  },
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    return ret_strs.str();
-  }
-);
-static InstructionMonitor *instrMonitor_csw = new InstructionMonitor(
-  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "csw",
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(9,7);
-    rs1 += R_rs1_0.read(ba) << 0;
-    int rs2 = 0;
-    static etiss::instr::BitArrayRange R_rs2_0(4,2);
-    rs2 += R_rs2_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 22 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs2_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs2 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
-    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
-    return ret_strs.str();
-  },
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    return ret_strs.str();
-  }
-);
-static InstructionMonitor *instrMonitor_lh = new InstructionMonitor(
-  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "lh",
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(19,15);
-    rs1 += R_rs1_0.read(ba) << 0;
-    int rd = 0;
-    static etiss::instr::BitArrayRange R_rd_0(11,7);
-    rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 23 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
@@ -714,7 +1129,7 @@ static InstructionMonitor *instrMonitor_lw = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 24 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 38 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -729,9 +1144,9 @@ static InstructionMonitor *instrMonitor_lw = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_lbu = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_lh = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "lbu",
+  "lh",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
@@ -741,7 +1156,7 @@ static InstructionMonitor *instrMonitor_lbu = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 25 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 39 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -768,7 +1183,7 @@ static InstructionMonitor *instrMonitor_lhu = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 26 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 40 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -783,19 +1198,46 @@ static InstructionMonitor *instrMonitor_lhu = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_clw = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_lb = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "clw",
+  "lb",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
     int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(9,7);
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
     rs1 += R_rs1_0.read(ba) << 0;
     int rd = 0;
-    static etiss::instr::BitArrayRange R_rd_0(4,2);
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 27 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 41 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
+    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
+    return ret_strs.str();
+  },
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    return ret_strs.str();
+  }
+);
+static InstructionMonitor *instrMonitor_lbu = new InstructionMonitor(
+  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
+  "lbu",
+  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
+    std::stringstream ret_strs;
+    
+    int rs1 = 0;
+    static etiss::instr::BitArrayRange R_rs1_0(19,15);
+    rs1 += R_rs1_0.read(ba) << 0;
+    int rd = 0;
+    static etiss::instr::BitArrayRange R_rd_0(11,7);
+    rd += R_rd_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 42 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -831,7 +1273,7 @@ static InstructionMonitor *instrMonitor_beq = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 28 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 43 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -869,7 +1311,7 @@ static InstructionMonitor *instrMonitor_bne = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 29 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 44 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -907,7 +1349,7 @@ static InstructionMonitor *instrMonitor_blt = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 30 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 45 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -945,7 +1387,7 @@ static InstructionMonitor *instrMonitor_bge = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 31 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 46 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -983,7 +1425,7 @@ static InstructionMonitor *instrMonitor_bltu = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 32 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 47 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -1021,7 +1463,7 @@ static InstructionMonitor *instrMonitor_bgeu = new InstructionMonitor(
     imm += R_imm_1.read(ba) << 1;
     static etiss::instr::BitArrayRange R_imm_11(7,7);
     imm += R_imm_11.read(ba) << 11;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 33 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 48 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
@@ -1038,83 +1480,13 @@ static InstructionMonitor *instrMonitor_bgeu = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_cbeqz = new InstructionMonitor(
-  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cbeqz",
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(9,7);
-    rs1 += R_rs1_0.read(ba) << 0;
-    int imm = 0;
-    static etiss::instr::BitArrayRange R_imm_8(12,12);
-    imm += R_imm_8.read(ba) << 8;
-    static etiss::instr::BitArrayRange R_imm_3(11,10);
-    imm += R_imm_3.read(ba) << 3;
-    static etiss::instr::BitArrayRange R_imm_6(6,5);
-    imm += R_imm_6.read(ba) << 6;
-    static etiss::instr::BitArrayRange R_imm_1(4,3);
-    imm += R_imm_1.read(ba) << 1;
-    static etiss::instr::BitArrayRange R_imm_5(2,2);
-    imm += R_imm_5.read(ba) << 5;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 34 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_brTarget_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 7)) >> 7) << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
-    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
-    return ret_strs.str();
-  },
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    return ret_strs.str();
-  }
-);
-static InstructionMonitor *instrMonitor_cbnez = new InstructionMonitor(
-  SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "cbnez",
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(9,7);
-    rs1 += R_rs1_0.read(ba) << 0;
-    int imm = 0;
-    static etiss::instr::BitArrayRange R_imm_8(12,12);
-    imm += R_imm_8.read(ba) << 8;
-    static etiss::instr::BitArrayRange R_imm_3(11,10);
-    imm += R_imm_3.read(ba) << 3;
-    static etiss::instr::BitArrayRange R_imm_6(6,5);
-    imm += R_imm_6.read(ba) << 6;
-    static etiss::instr::BitArrayRange R_imm_1(4,3);
-    imm += R_imm_1.read(ba) << 1;
-    static etiss::instr::BitArrayRange R_imm_5(2,2);
-    imm += R_imm_5.read(ba) << 5;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 35 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_brTarget_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ + (((int16_t)(imm  << 7)) >> 7) << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
-    ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
-    return ret_strs.str();
-  },
-  [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
-    std::stringstream ret_strs;
-    return ret_strs.str();
-  }
-);
 static InstructionMonitor *instrMonitor__def = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
   "_def",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 36 << ";\n";
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 49 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
@@ -1125,23 +1497,29 @@ static InstructionMonitor *instrMonitor__def = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_lb = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_jal = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "lb",
+  "jal",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
-    int rs1 = 0;
-    static etiss::instr::BitArrayRange R_rs1_0(19,15);
-    rs1 += R_rs1_0.read(ba) << 0;
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 37 << ";\n";
-    
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
+    int imm = 0;
+    static etiss::instr::BitArrayRange R_imm_20(31,31);
+    imm += R_imm_20.read(ba) << 20;
+    static etiss::instr::BitArrayRange R_imm_1(30,21);
+    imm += R_imm_1.read(ba) << 1;
+    static etiss::instr::BitArrayRange R_imm_11(20,20);
+    imm += R_imm_11.read(ba) << 11;
+    static etiss::instr::BitArrayRange R_imm_12(19,12);
+    imm += R_imm_12.read(ba) << 12;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 50 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_brTarget_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ + (((int32_t)(imm  << 11)) >> 11) << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
@@ -1152,9 +1530,9 @@ static InstructionMonitor *instrMonitor_lb = new InstructionMonitor(
     return ret_strs.str();
   }
 );
-static InstructionMonitor *instrMonitor_slti = new InstructionMonitor(
+static InstructionMonitor *instrMonitor_jalr = new InstructionMonitor(
   SimpleRISCV_H_nfw_StaBrPred_InstrMonitorSet,
-  "slti",
+  "jalr",
   [](etiss::instr::BitArray &ba, etiss::instr::Instruction &instr, etiss::instr::InstructionContext &ic){
     std::stringstream ret_strs;
     
@@ -1164,11 +1542,16 @@ static InstructionMonitor *instrMonitor_slti = new InstructionMonitor(
     int rd = 0;
     static etiss::instr::BitArrayRange R_rd_0(11,7);
     rd += R_rd_0.read(ba) << 0;
-    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 38 << ";\n";
+    int imm = 0;
+    static etiss::instr::BitArrayRange R_imm_0(31,20);
+    imm += R_imm_0.read(ba) << 0;
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_typeId_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << 51 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rs1_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rs1 << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_rd_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << rd << ";\n";
+    
+    ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_brTarget_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << "("<< ic.current_address_ + (((int16_t)(imm  << 4)) >> 4)<< ") & -2U" << ";\n";
     
     ret_strs << "SimpleRISCV_H_nfw_StaBrPred_Monitor_pc_buffer[*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt] = " << ic.current_address_ << ";\n";
     ret_strs << "*SimpleRISCV_H_nfw_StaBrPred_Monitor_instrCnt += 1;\n";
